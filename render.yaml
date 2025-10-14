@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: myportfolio
+    env: dotnet
+    rootDir: MyPortfolio
+    buildCommand: "dotnet publish -c Release -o out"
+    startCommand: "dotnet out/MyPortfolio.dll"
+    plan: free
