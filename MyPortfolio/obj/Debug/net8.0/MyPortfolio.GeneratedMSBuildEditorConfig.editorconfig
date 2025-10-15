@@ -24,6 +24,14 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXRcQWJvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/kells/OneDrive/Documents/GitHub/Kelly-Soberano/MyPortfolio/Pages/Contact/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGFjdFxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kells/OneDrive/Documents/GitHub/Kelly-Soberano/MyPortfolio/Pages/Experience/Experience.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXhwZXJpZW5jZVxFeHBlcmllbmNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kells/OneDrive/Documents/GitHub/Kelly-Soberano/MyPortfolio/Pages/Home/Home.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxIb21lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -32,8 +40,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kells/OneDrive/Documents/GitHub/Kelly-Soberano/MyPortfolio/Pages/Projects/Project.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvamVjdHNcUHJvamVjdC5jc2h0bWw=
+[C:/Users/kells/OneDrive/Documents/GitHub/Kelly-Soberano/MyPortfolio/Pages/Project/Project.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvamVjdFxQcm9qZWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kells/OneDrive/Documents/GitHub/Kelly-Soberano/MyPortfolio/Pages/Shared/_ValidationScriptsPartial.cshtml]

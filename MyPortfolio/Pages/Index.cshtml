@@ -1,7 +1,133 @@
 @page
-@functions {
-    public IActionResult OnGet()
-    {
-        return RedirectToPage("/Home/Home");
-    }
+@model IndexModel
+@{
+    ViewData["Title"] = "Kelly Soberano";
 }
+
+<header class="main-header">
+    <nav class="main-nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div id="progressContainer">
+        <div id="progressBar"></div>
+    </div>
+</header>
+
+<!-- Navigation Arrows -->
+<button id="leftArrow" class="nav-arrow left">❮</button>
+<button id="rightArrow" class="nav-arrow right">❯</button>
+
+<main class="horizontal-scroll" id="scrollContainer">
+    <section id="home">
+        <h1>Hello, I'm <span class="highlight">Kelly S. Soberano</span></h1>
+        <p>Welcome to my horizontal portfolio! Scroll ➡️, drag, or click the links above.</p>
+    </section>
+
+    <section id="about">
+        <h1>About Me</h1>
+        <p>I’m a Computer Science graduate passionate about creating efficient, modern web systems and interfaces.</p>
+    </section>
+
+    <section id="projects">
+        <h1>Projects</h1>
+        <p>
+            💻 Seat Reservation System<br />
+            📦 Inventory Management System<br />
+            🌐 Personal Portfolio Website
+        </p>
+    </section>
+
+    <section id="experience">
+        <h1>Experience</h1>
+        <p>Hands-on with ASP.NET Core, React, Firebase, MongoDB, Node.js, and Tailwind CSS.</p>
+    </section>
+
+    <section id="contact">
+        <h1>Contact</h1>
+        <p>Email: kellysoberano@example.com</p>
+        <p>LinkedIn: linkedin.com/in/kellysoberano</p>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <p>© 2025 Kelly Soberano. All rights reserved.</p>
+</footer>
+
+<script>
+    const scrollContainer = document.getElementById('scrollContainer');
+    const leftArrow = document.getElementById('leftArrow');
+    const rightArrow = document.getElementById('rightArrow');
+    const sections = document.querySelectorAll('main section');
+    const progressBar = document.getElementById('progressBar');
+    let currentIndex = 0;
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('.main-nav a').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', inline: 'start' });
+        });
+    });
+
+    // Drag-to-scroll
+    let isDown = false, startX, scrollLeft;
+    scrollContainer.addEventListener('mousedown', e => {
+        isDown = true;
+        startX = e.pageX - scrollContainer.offsetLeft;
+        scrollLeft = scrollContainer.scrollLeft;
+        scrollContainer.classList.add('active');
+    });
+    scrollContainer.addEventListener('mouseleave', () => isDown = false);
+    scrollContainer.addEventListener('mouseup', () => isDown = false);
+    scrollContainer.addEventListener('mousemove', e => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - scrollContainer.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        scrollContainer.scrollLeft = scrollLeft - walk;
+    });
+
+    // Scroll to section by index
+    function scrollToSection(index) {
+        if (index < 0 || index >= sections.length) return;
+        sections[index].scrollIntoView({ behavior: 'smooth', inline: 'start' });
+        currentIndex = index;
+        updateArrowVisibility();
+    }
+
+    leftArrow.addEventListener('click', () => scrollToSection(currentIndex - 1));
+    rightArrow.addEventListener('click', () => scrollToSection(currentIndex + 1));
+
+    // Fade arrows based on position
+    function updateArrowVisibility() {
+        leftArrow.classList.toggle('hidden', currentIndex === 0);
+        rightArrow.classList.toggle('hidden', currentIndex === sections.length - 1);
+    }
+
+    // Update scroll progress bar
+    function updateProgressBar() {
+        const scrollWidth = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+        const scrollPosition = scrollContainer.scrollLeft;
+        const progress = (scrollPosition / scrollWidth) * 100;
+        progressBar.style.width = progress + "%";
+    }
+
+    // Detect current section + progress bar
+    scrollContainer.addEventListener('scroll', () => {
+        const sectionWidth = window.innerWidth;
+        currentIndex = Math.round(scrollContainer.scrollLeft / sectionWidth);
+        updateArrowVisibility();
+        updateProgressBar();
+    });
+
+    // Initialize
+    updateArrowVisibility();
+    updateProgressBar();
+</script>
