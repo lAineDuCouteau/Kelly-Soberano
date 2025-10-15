@@ -5,13 +5,20 @@
 }
 
 <header class="main-header">
-    <nav class="main-nav">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <div class="header-container">
+        <h2 class="logo">Kelly Soberano</h2>
+
+        <!-- Burger Button -->
+        <button class="burger" id="burgerBtn">☰</button>
+
+        <nav class="main-nav" id="mainNav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
 
     <!-- Progress Bar -->
     <div id="progressContainer">
@@ -65,7 +72,14 @@
     const rightArrow = document.getElementById('rightArrow');
     const sections = document.querySelectorAll('main section');
     const progressBar = document.getElementById('progressBar');
+    const burgerBtn = document.getElementById('burgerBtn');
+    const mainNav = document.getElementById('mainNav');
     let currentIndex = 0;
+
+    // Burger menu toggle
+    burgerBtn.addEventListener('click', () => {
+        mainNav.classList.toggle('show');
+    });
 
     // Smooth scroll for nav links
     document.querySelectorAll('.main-nav a').forEach(link => {
@@ -73,6 +87,9 @@
             e.preventDefault();
             const target = document.querySelector(link.getAttribute('href'));
             if (target) target.scrollIntoView({ behavior: 'smooth', inline: 'start' });
+
+            // Close burger menu on mobile after clicking
+            mainNav.classList.remove('show');
         });
     });
 
