@@ -53,6 +53,58 @@
     user-select: none;
 }
 
+/* === Buttons === */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    text-decoration: none;
+    font-weight: 700;
+    padding: 10px 15px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    font-size: 1.3rem;
+}
+
+/* Button Variants */
+.btn.github {
+    background-color: #24292e;
+    color: white;
+}
+
+.btn.github:hover {
+    background-color: white;
+    color: #24292e;
+    border-color: #24292e;
+}
+
+.btn.cv {
+    background-color: #009688;
+    color: white;
+}
+
+.btn.cv:hover {
+    background-color: white;
+    color: #009688;
+    border-color: #009688;
+}
+
+.btn.linkedin {
+    background-color: #0077b5;
+    color: white;
+}
+
+.btn.linkedin:hover {
+    background-color: white;
+    color: #0077b5;
+    border-color: #0077b5;
+}
+
 @media (max-width: 600px) {
     .profile-img {
         width: 180px;

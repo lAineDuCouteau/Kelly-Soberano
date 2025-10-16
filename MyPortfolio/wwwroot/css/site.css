@@ -19,16 +19,41 @@ body {
   z-index: 10;
 }
 
+.main-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px; /* spacing between each nav item */
+}
+
 .main-nav a {
+  display: flex;
+  flex-direction: column; /* stack SVG above text */
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   color: #0078d7;
-  margin: 0 20px;
   font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0 15px;
   transition: color 0.3s ease;
+}
+
+.main-nav a svg {
+  margin-bottom: 5px; /* space between icon and text */
+  width: 24px;
+  height: 24px;
+  color: #0078d7;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .main-nav a:hover {
   color: #005fa3;
+}
+
+.main-nav a:hover svg {
+  color: #005fa3;
+  transform: translateY(-3px); /* lift effect on hover */
 }
 
 /* Progress Bar */
@@ -198,7 +223,7 @@ p {
     gap: 15px;
     padding: 20px;
     border-radius: 10px 0 0 10px;
-    width: 100%;
+    width: 90%;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     z-index: 1000;
@@ -208,12 +233,18 @@ p {
     transform: translateX(0);
   }
 
+ 
+
   .main-nav a {
-    display: block;
-    color: #0078d7;
-    width: 100%;
-    padding: 10px 0;
-    text-align: center;
+    flex-direction: row;
+    margin: 10px 0;
+    font-size: 1rem;
+    gap: 5px;
+  }
+
+  .main-nav a svg {
+    width: 20px;
+    height: 20px;
   }
 
   .main-footer {
@@ -232,6 +263,11 @@ p {
   .nav-arrow {
     font-size: 1rem;
     padding: 8px 12px;
+  }
+
+  .main-nav {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
