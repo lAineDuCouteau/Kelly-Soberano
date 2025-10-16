@@ -4,6 +4,10 @@
     ViewData["Title"] = "Kelly Soberano";
 }
 
+@section Styles {
+    <link rel="stylesheet" href="~/css/home.css" />
+}
+
 <header class="main-header">
     <div class="header-container">
         <h2 class="logo">Kelly Soberano</h2>
@@ -31,16 +35,27 @@
 <button id="rightArrow" class="nav-arrow right">❯</button>
 
 <main class="horizontal-scroll" id="scrollContainer">
-    <section id="home">
-        <h1>Hello, I'm <span class="highlight">Kelly S. Soberano</span></h1>
-        <p>Welcome to my horizontal portfolio! Scroll ➡️, drag, or click the links above.</p>
+    <!-- HOME SECTION -->
+    <section id="home" class="home-section">
+        <div class="home-content">
+            <img src="~/images/dp.png" alt="Kelly Soberano" class="profile-img" />
+            <div class="intro-text">
+                <h1>Hello, I'm <span class="highlight">Kelly S. Soberano</span></h1>
+                <p class="quote">“Strive not to be a success, but rather to be of value.” – Albert Einstein</p>
+            </div>
+        </div>
     </section>
 
+    <!-- ABOUT SECTION -->
     <section id="about">
         <h1>About Me</h1>
-        <p>I’m a Computer Science graduate passionate about creating efficient, modern web systems and interfaces.</p>
+        <p>
+            I’m a Computer Science graduate passionate about creating efficient, modern web systems and user-friendly interfaces.
+            I enjoy solving real-world problems through clean, scalable, and creative code.
+        </p>
     </section>
 
+    <!-- PROJECTS SECTION -->
     <section id="projects">
         <h1>Projects</h1>
         <p>
@@ -50,11 +65,13 @@
         </p>
     </section>
 
+    <!-- EXPERIENCE SECTION -->
     <section id="experience">
         <h1>Experience</h1>
         <p>Hands-on with ASP.NET Core, React, Firebase, MongoDB, Node.js, and Tailwind CSS.</p>
     </section>
 
+    <!-- CONTACT SECTION -->
     <section id="contact">
         <h1>Contact</h1>
         <p>Email: kellysoberano@example.com</p>
@@ -87,8 +104,6 @@
             e.preventDefault();
             const target = document.querySelector(link.getAttribute('href'));
             if (target) target.scrollIntoView({ behavior: 'smooth', inline: 'start' });
-
-            // Close burger menu on mobile after clicking
             mainNav.classList.remove('show');
         });
     });
@@ -128,7 +143,7 @@
         rightArrow.classList.toggle('hidden', currentIndex === sections.length - 1);
     }
 
-    // Update scroll progress bar
+    // Progress bar
     function updateProgressBar() {
         const scrollWidth = scrollContainer.scrollWidth - scrollContainer.clientWidth;
         const scrollPosition = scrollContainer.scrollLeft;
@@ -136,7 +151,6 @@
         progressBar.style.width = progress + "%";
     }
 
-    // Detect current section + progress bar
     scrollContainer.addEventListener('scroll', () => {
         const sectionWidth = window.innerWidth;
         currentIndex = Math.round(scrollContainer.scrollLeft / sectionWidth);
@@ -144,7 +158,7 @@
         updateProgressBar();
     });
 
-    // Initialize
+    // Init
     updateArrowVisibility();
     updateProgressBar();
 </script>
