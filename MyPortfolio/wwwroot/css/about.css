@@ -1,0 +1,116 @@
+.about-glass {
+    padding: 50px 80px;
+    border-radius: 55px;
+    background: rgba(0, 0, 0, 0.432);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.25),
+        inset 0 0 30px rgba(255, 255, 255, 0.1),
+        inset 0 0 60px rgba(173, 216, 230, 0.2);
+    color: white;
+    max-width: 90vw;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-glass:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.35),
+        inset 0 0 40px rgba(255, 255, 255, 0.2),
+        inset 0 0 80px rgba(173, 216, 230, 0.3);
+}
+
+.about-glass h1 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: #fff;
+    text-align: center;
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* vertical centering */
+    gap: 40px;
+    flex-wrap: wrap; /* wrap on smaller screens */
+}
+
+
+.about-text {
+    flex: 1 1 400px; /* flexible width with min 400px */
+    text-align: left;
+}
+
+.about-tech {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column; /* stack items in one column */
+    gap: 15px; /* space between each box */
+    justify-content: center; /* center vertically if left side is taller */
+}
+
+
+
+.about-category {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.about-category h3 {
+    color: #00bcd4;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.about-category p {
+    color: #e0f7fa;
+    font-size: 0.95rem;
+}
+
+/* === Responsiveness === */
+@media (max-width: 1024px) {
+    .about-glass {
+        padding: 40px 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column; /* stack text & tech on smaller screens */
+    }
+
+    .about-glass {
+        padding: 30px 25px;
+        width: 95%;
+    }
+
+    .about-glass h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-glass {
+        padding: 25px 15px;
+        border-radius: 30px;
+    }
+
+    .about-glass h1 {
+        font-size: 1.5rem;
+    }
+
+    .about-category p {
+        font-size: 0.85rem;
+    }
+}

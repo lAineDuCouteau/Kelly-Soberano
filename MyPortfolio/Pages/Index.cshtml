@@ -6,6 +6,7 @@
 
 @section Styles {
     <link rel="stylesheet" href="~/css/home.css" />
+    <link rel="stylesheet" href="~/css/about.css" />
     <link rel="stylesheet" href="~/css/footer.css" />
 }
 
@@ -65,7 +66,6 @@
     </nav>
 </div>
 
-
     <!-- Progress Bar -->
     <div id="progressContainer">
         <div id="progressBar"></div>
@@ -114,14 +114,47 @@
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about">
-        <h1>About Me</h1>
-        <p>
-            I’m a Computer Science graduate passionate about creating efficient, modern web systems and user-friendly interfaces.
-            I enjoy solving real-world problems through clean, scalable, and creative code.
-        </p>
-    </section>
+   <!-- ABOUT SECTION -->
+<section id="about" class="about-section">
+    <div class="about-glass">
+        <div class="about-content">
+            <!-- Left: Texts -->
+            <div class="about-text">
+            <h1>About Me</h1>
+                <p>
+                    Hello! I'm <span class="highlight">Kelly Soberano</span>, a 25 year old Computer Science graduate from 
+                    <span class="highlight">Cavite State University - Bacoor City Campus</span>.
+                </p>
+                <p>
+                    I’m passionate about developing modern, responsive, and efficient web systems with user-friendly interfaces.  
+                    I love transforming ideas into functional, visually appealing applications through clean and scalable code.
+                </p>
+            </div>
+
+            <!-- Right: Technologies -->
+            <div class="about-tech">
+                <div class="about-category">
+                    <h3>💻 Tech Skills</h3>
+                    <p>React, TypeScript, Node.js, Express.js, Python, C#, Dart, Flutter, JavaScript, ASP.NET Core, CSS, SCSS, HTML</p>
+                </div>
+                <div class="about-category">
+                    <h3>🗄️ Databases</h3>
+                    <p>MongoDB, Firebase Storage, Firestore, Firebase Authentication, PostgreSQL</p>
+                </div>
+                <div class="about-category">
+                    <h3>🛠️ Tools</h3>
+                    <p>Unity, Android Studio, VS Code, Figma, Canva</p>
+                </div>
+                <div class="about-category">
+                    <h3>🚀 Deployment</h3>
+                    <p>Vercel, PythonAnywhere, Render</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
     <!-- PROJECTS SECTION -->
     <section id="projects">
@@ -154,8 +187,6 @@
         <p>© 2025 Kelly Soberano. All rights reserved.</p>
     </div>
 </footer>
-
-
 
 <script>
     const scrollContainer = document.getElementById('scrollContainer');
