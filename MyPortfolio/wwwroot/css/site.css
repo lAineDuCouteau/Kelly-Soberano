@@ -182,7 +182,7 @@ p {
 }
 
 /* Mobile view menu */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .burger {
     display: block;
   }
@@ -237,7 +237,7 @@ p {
 
 
 /* Responsive */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   h1 {
     font-size: .9rem;
   }
