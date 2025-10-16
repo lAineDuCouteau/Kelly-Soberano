@@ -15,7 +15,7 @@ body {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   text-align: center;
-  padding: 15px 0 25px;
+  padding: 15px 0 20px;
   z-index: 10;
 }
 
@@ -197,6 +197,10 @@ p {
 @media (max-width: 768px) {
   .burger {
     display: block;
+  }
+
+  .main-header {
+    padding: 10px 0 10px;
   }
 
   .main-nav {
