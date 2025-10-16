@@ -32,7 +32,7 @@ body {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #0078d7;
+  color: #25b9b1;
   font-weight: 600;
   font-size: 0.9rem;
   margin: 0 15px;
@@ -43,16 +43,16 @@ body {
   margin-bottom: 5px; /* space between icon and text */
   width: 24px;
   height: 24px;
-  color: #0078d7;
+  color: #25b9b1;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .main-nav a:hover {
-  color: #005fa3;
+  color: #8ef0eb;
 }
 
 .main-nav a:hover svg {
-  color: #005fa3;
+  color: #8ef0eb;
   transform: translateY(-3px); /* lift effect on hover */
 }
 
@@ -165,22 +165,9 @@ p {
   pointer-events: none;
 }
 
-/* Footer */
-.main-footer {
-  position: fixed;
-  bottom: -10px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  color: #0078d7;
-  font-weight: 500;
-  padding: 0px 0;
-  z-index: 15;
-  font-size: 0.5rem;
-  user-select: none;
-}
+
+
+
 
 /* Burger Menu */
 .header-container {
@@ -192,7 +179,7 @@ p {
 
 .logo {
   font-size: 1.2rem;
-  color: #0078d7;
+  color: #25b9b1;
   font-weight: 700;
   user-select: none;
 }
@@ -202,7 +189,7 @@ p {
   font-size: 1.8rem;
   background: none;
   border: none;
-  color: #0078d7;
+  color: #25b9b1;
   cursor: pointer;
 }
 
@@ -246,12 +233,7 @@ p {
     width: 20px;
     height: 20px;
   }
-
-  .main-footer {
-    font-size: 0.4rem;
-    padding: 5px 0;
-  }
-
+  
   .nav-arrow.left {
     left: 10px;
   }
