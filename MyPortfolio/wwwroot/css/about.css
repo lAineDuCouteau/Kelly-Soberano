@@ -47,7 +47,7 @@
     flex: 1 1 400px;
     display: flex;
     flex-direction: column; /* stack items in one column */
-    gap: 15px; /* space between each box */
+    gap: 10px; /* space between each box */
     justify-content: center; /* center vertically if left side is taller */
 }
 
@@ -57,7 +57,7 @@
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
     border-radius: 25px;
-    padding: 20px;
+    padding: 5px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -69,48 +69,258 @@
 
 .about-category h3 {
     color: #00bcd4;
-    margin-bottom: 10px;
     text-align: center;
 }
 
 .about-category p {
     color: #e0f7fa;
-    font-size: 0.95rem;
 }
 
-/* === Responsiveness === */
+.about-text p {
+    font-size: 1.2rem;
+    line-height: 2;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+/* Parent ul styling */
+.about-text ul {
+    list-style: none; /* remove default bullets */
+    padding-left: 0;
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center; /* centers the li horizontally */
+}
+
+/* List items */
+.about-text ul li {
+    position: relative;
+    padding: 10px 15px 10px 35px; /* left padding for bullet */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border-radius: 20px;
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.1),
+        inset 0 0 10px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 220px; /* fixed width for uniformity */
+}
+
+/* Checkmark */
+.about-text ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 15px; /* push checkmark away from edge */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00ffd0;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Hover effect */
+.about-text ul li:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.2),
+        inset 0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+.icon-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.icon-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.icon-container:hover {
+  transform: scale(1.1);
+}
+
+/* Tooltip styling */
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 8px;
+  position: absolute;
+  bottom: 110%; /* appears above the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease;
+  font-size: 13px;
+  white-space: nowrap;
+  pointer-events: none; /* prevent flicker */
+}
+
+/* Show tooltip on hover */
+.icon-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.about-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+/* Wrapper enables scrolling if content overflows */
+.about-wrapper {
+  width: 110%;
+  max-height: 100vh; /* only the visible viewport */
+  overflow-y: auto;  /* enables vertical scroll */
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  scroll-behavior: smooth;
+  margin-bottom: -30px;
+}
+
+/* Optional — custom scroll styling for elegance */
+.about-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.about-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+}
+
+.about-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+}
+
+
+
+/* === Responsive Design === */
 @media (max-width: 1024px) {
-    .about-glass {
-        padding: 40px 50px;
-    }
+  .about-glass {
+    padding: 40px 50px;
+    max-width: 95vw;
+  }
+
+  .about-content {
+    gap: 30px;
+  }
+
+  .about-text p {
+    font-size: 1.1rem;
+  }
 }
 
 @media (max-width: 768px) {
-    .about-content {
-        flex-direction: column; /* stack text & tech on smaller screens */
-    }
+  .about-glass {
+    padding: 35px 25px;
+    border-radius: 40px;
+  }
 
-    .about-glass {
-        padding: 30px 25px;
-        width: 95%;
-    }
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-    .about-glass h1 {
-        font-size: 1.8rem;
-    }
+  .about-text {
+    flex: 1 1 100%;
+  }
+
+  .about-tech {
+    flex: 1 1 100%;
+    width: 100%;
+    align-items: center;
+  }
+
+  .about-category {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .about-text ul li {
+    width: 180px;
+    font-size: 0.9rem;
+  }
+
+  .icon-list {
+    gap: 15px;
+  }
+
+  .icon-container svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .tooltip-text {
+    font-size: 12px;
+    bottom: 120%;
+  }
 }
 
 @media (max-width: 480px) {
-    .about-glass {
-        padding: 25px 15px;
-        border-radius: 30px;
-    }
+  .about-glass {
+    padding: 25px 15px;
+    border-radius: 30px;
+    box-shadow: none;
+  }
 
-    .about-glass h1 {
-        font-size: 1.5rem;
-    }
+  .about-glass:hover {
+    transform: translateY(-5px);
+    box-shadow: none;
+}
 
-    .about-category p {
-        font-size: 0.85rem;
-    }
+  .about-glass h1 {
+    font-size: 1.6rem;
+  }
+
+  .about-content {
+    gap: 20px;
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
+  }
+
+  .about-text ul li {
+    width: 160px;
+    font-size: 0.85rem;
+  }
+
+  .icon-list {
+    gap: 10px;
+  }
+
+  .icon-container svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .tooltip-text {
+    font-size: 11px;
+    bottom: 125%;
+  }
 }
