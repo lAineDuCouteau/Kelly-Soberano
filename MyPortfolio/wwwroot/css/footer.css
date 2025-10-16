@@ -3,7 +3,7 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100vw;
+    width: 98vw;
     background: rgba(255, 255, 255, 0.63);
     backdrop-filter: blur(10px);
     color: #0078d7;
@@ -14,11 +14,18 @@
     user-select: none;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
-    overflow-x: auto; /* allow horizontal scroll if content overflows */
-    white-space: nowrap; /* keep content in one row */
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+/* keep row layout for all screen sizes */
+.main-footer-content {
+    display: flex;
+    align-items: center;
+    gap: 18rem;
+    white-space: nowrap;
 }
 
 .main-footer a {
@@ -34,7 +41,7 @@
 .footer-social {
     display: flex;
     gap: 10px;
-    flex-wrap: nowrap; /* stay in one row */
+    flex-wrap: nowrap;
 }
 
 .footer-btn {
@@ -69,23 +76,17 @@
 /* Mobile view */
 @media (max-width: 768px) {
     .main-footer {
-        flex-direction: row;
-        align-items: center;
         justify-content: flex-start;
         font-size: 0.6rem;
         padding: 8px 10px;
         gap: 6px;
-        overflow: hidden; /* hide scrollbar */
-        white-space: nowrap;
-        position: fixed;
-        bottom: 0;
-        left: 0;
+        overflow: hidden;
     }
 
     .main-footer-content {
         display: inline-flex;
         gap: 20px;
-        animation: scrollFooter 20s linear infinite; /* adjust speed */
+        animation: scrollFooter 20s linear infinite;
     }
 
     @keyframes scrollFooter {
@@ -95,11 +96,6 @@
         100% {
             transform: translateX(-100%);
         }
-    }
-
-    .footer-social {
-        flex-direction: row;
-        gap: 6px;
     }
 
     .footer-btn {
