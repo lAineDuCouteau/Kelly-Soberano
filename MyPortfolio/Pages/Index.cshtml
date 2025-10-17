@@ -74,23 +74,102 @@
 </header>
 
 <script>
-function openModal(id) {
-  document.getElementById(id).style.display = 'block';
-}
+/* ----------- Unified modal + slideshow logic with auto-rotation ----------- */
 
-function closeModal(id) {
-  document.getElementById(id).style.display = 'none';
-}
+const slideshows = {};
+const autoSlideIntervals = {};
 
-// Close modal when clicking outside content
-window.onclick = function(event) {
-  document.querySelectorAll('.modal').forEach(modal => {
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
+// Show the slide for a given modal
+function showSlidesForModal(modalId, index) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+
+  const slides = modal.querySelectorAll(".slides");
+  if (!slides.length) return;
+
+  // wrap index
+  if (index > slides.length) index = 1;
+  if (index < 1) index = slides.length;
+
+  slideshows[modalId] = index;
+
+  slides.forEach((s, i) => {
+    s.style.display = (i + 1 === index) ? "block" : "none";
   });
-};
+}
+
+// Move slide manually
+function plusSlides(n, modalId) {
+  slideshows[modalId] = (slideshows[modalId] || 1) + n;
+  showSlidesForModal(modalId, slideshows[modalId]);
+}
+
+// Open modal and start auto-slideshow
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+
+  modal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+
+  slideshows[modalId] = 1;
+  showSlidesForModal(modalId, slideshows[modalId]);
+
+  // Start automatic slideshow (every 3s)
+  autoSlideIntervals[modalId] = setInterval(() => {
+    plusSlides(1, modalId);
+  }, 1500);
+}
+
+// Close modal and stop slideshow
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+
+  modal.style.display = "none";
+  document.body.style.overflow = "auto";
+
+  // Stop auto slideshow
+  clearInterval(autoSlideIntervals[modalId]);
+}
+
+/* ---------- Event handlers ---------- */
+
+// Prev / Next buttons
+document.addEventListener("click", (e) => {
+  const prev = e.target.closest(".prev");
+  const next = e.target.closest(".next");
+
+  if (prev) {
+    const modal = prev.closest(".modal");
+    plusSlides(-1, modal.id);
+  }
+  if (next) {
+    const modal = next.closest(".modal");
+    plusSlides(1, modal.id);
+  }
+});
+
+// Escape key closes modals
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    document.querySelectorAll(".modal").forEach((modal) => {
+      modal.style.display = "none";
+      clearInterval(autoSlideIntervals[modal.id]);
+    });
+    document.body.style.overflow = "auto";
+  }
+});
+
+// Hide all modals initially
+window.addEventListener("load", () => {
+  document.querySelectorAll(".modal").forEach((modal) => {
+    modal.style.display = "none";
+  });
+});
 </script>
+
+
 
 
 <!-- Navigation Arrows -->
@@ -325,37 +404,104 @@ window.onclick = function(event) {
   </div>
 
   <!-- ===== MODALS ===== -->
-  <!-- Modal 1 -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('modal1')">&times;</span>
-      <img src="~/images/discoveru.jpg" alt="DiscoverU" class="modal-img" />
-      <h2>DiscoverU</h2>
-      <p>
-        A web-based platform using OMR and real-time analytics to automate psychological assessments for Cavite State University – Bacoor City Campus.
-      </p>
-      <h3>🛠 Technologies Used:</h3>
-      <p>React, Node.js, Express, MongoDB, Firebase</p>
-      <a href="#" class="modal-btn" target="_blank">🔗 View Project</a>
+<!-- Modal 1 -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal1')">&times;</span>
+
+    <!-- 🔹 Image Slideshow Container -->
+    <div class="slideshow-container">
+      <div class="slides fade">
+        <img src="images/discoverU/student.png" alt="DiscoverU Screenshot 1" />
+      </div>
+
+      <div class="slides fade">
+        <img src="images/discoverU/student1.png" alt="DiscoverU Screenshot 2" />
+      </div>
+
+      <div class="slides fade">
+        <img src="images/discoverU/student2.png" alt="DiscoverU Screenshot 3" />
+      </div>
+
+      <div class="slides fade">
+        <img src="images/discoverU/student3.png" alt="DiscoverU Screenshot 3" />
+      </div>
+
+      <div class="slides fade">
+        <img src="images/discoverU/student4.png" alt="DiscoverU Screenshot 3" />
+      </div>
+
+      <div class="slides fade">
+        <img src="images/discoverU/guidance.png" alt="DiscoverU Screenshot 3" />
+      </div>
+
+      <div class="slides fade">
+        <img src="images/discoverU/psych.png" alt="DiscoverU Screenshot 3" />
+      </div>
+
+      <div class="slides fade">
+        <img src="images/discoverU/psych1.png" alt="DiscoverU Screenshot 3" />
+      </div>
+
+      <!-- Next and previous buttons -->
+      <a class="prev" onclick="plusSlides(-1, 'modal1')">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 'modal1')">&#10095;</a>
     </div>
+
+    <h2>DiscoverU</h2>
+    <p>
+      A web-based platform using OMR and real-time analytics to automate psychological assessments for Cavite State University – Bacoor City Campus, improving accuracy, speed, and counseling efficiency. This project has 3 levels of access: the Student, Guidance (Admin), and Psychology (Super Admin).
+    </p>
+    <h3>🛠 Technologies Used:</h3>
+    <p>• React • TypeScript • Node.js • Express.js • MongoDB • Firebase Storage • Python • OpenCV</p>
+
+    <a href="https://student-taupe-two.vercel.app/" class="modal-btn" target="_blank">Student</a>
+    <a href="https://guidance-ashen.vercel.app/" class="modal-btn" target="_blank">Guidance</a>
+    <a href="https://psychology-eight.vercel.app/" class="modal-btn" target="_blank">Psychology</a>
   </div>
+</div>
+
 
   <!-- Modal 2 -->
   <div id="modal2" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal('modal2')">&times;</span>
-      <img src="~/images/launchpad.jpg" alt="Launchpad Reservation" class="modal-img" />
+ 
+ <!-- 🔹 Image Slideshow Container -->
+    <div class="slideshow-container">
+      <div class="slides fade">
+        <img src="images/resv/resv.png" alt="Resv Screenshot 1" />
+      </div>
+
+      <div class="slides fade">
+        <img src="images/resv/resv1.png" alt="Resv Screenshot 2" />
+      </div>
+
+      <div class="slides fade">
+        <img src="images/resv/resv2.png" alt="Resv Screenshot 3" />
+      </div>
+
+      <div class="slides fade">
+        <img src="images/resv/resv3.png" alt="Resv Screenshot 3" />
+      </div>
+
+      <div class="slides fade">
+        <img src="images/resv/resv4.png" alt="Resv Screenshot 4" />
+      </div>
+
+      <!-- Next and previous buttons -->
+      <a class="prev" onclick="plusSlides(-1, 'modal2')">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 'modal2')">&#10095;</a>
+    </div>
+
       <h2>Launchpad Reservation</h2>
-      <p>
-        A seat reservation platform built with React, Node.js, and Firebase to simplify booking management.
-      </p>
+      <p>The ResV project, a seat reservation platform, aims to simplify the process of managing seat reservations for both administrators and customers. Built using a robust tech stack, including React for the user interface and Node.js with Express for the backend, ResV provides a responsive, reliable, and user-friendly experience.</p>
       <h3>🛠 Technologies Used:</h3>
-      <p>React, Express.js, Firebase, MongoDB</p>
-      <a href="#" class="modal-btn" target="_blank">🔗 View Project</a>
+      <p>• React • Node.js • Express.js • MongoDB • Firebase Storage</p>
+      <a href="https://res-v.vercel.app/" class="modal-btn" target="_blank">Web Link</a>
     </div>
   </div>
 
-  <!-- Add modals 3–5 similarly -->
 </section>
 
 

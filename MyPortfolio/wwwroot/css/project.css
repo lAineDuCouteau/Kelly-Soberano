@@ -161,44 +161,58 @@
 }
 
 
-/* === MODAL STYLING === */
+/* Modal background overlay */
 .modal {
-  display: none;
+  display: none; /* Hidden by default */
   position: fixed;
-  z-index: 100;
+  z-index: 999;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  backdrop-filter: blur(10px) saturate(180%);
-  background: rgba(0, 0, 0, 0.7);
-  animation: fadeIn 0.3s ease;
+  overflow-y: auto; /* allows scroll if content too tall */
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  
+  /* Center modal content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px; /* adds breathing room */
 }
 
-/* Modal inner content */
+/* Centered modal box */
 .modal-content {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15px) saturate(200%);
   -webkit-backdrop-filter: blur(15px) saturate(200%);
-  margin: 10% auto;
   border-radius: 25px;
   padding: 30px;
   width: 90%;
   max-width: 600px;
-  color: white;
+  color: rgb(56, 230, 236);
   box-shadow: 0 10px 40px rgba(0, 255, 208, 0.3);
   position: relative;
   text-align: center;
   animation: slideUp 0.4s ease;
+  margin: auto; /* ensures perfect centering */
+  margin-top: 30px;
 }
 
+/* Text inside modal */
+.modal-content p {
+  color: rgb(214, 212, 212);
+  line-height: 1.6;
+}
+
+/* Modal image */
 .modal-img {
   width: 100%;
   border-radius: 15px;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
+/* Close button */
 .close {
   position: absolute;
   top: 15px;
@@ -213,9 +227,10 @@
   color: #fff;
 }
 
+/* Buttons inside modal */
 .modal-btn {
   display: inline-block;
-  margin-top: 15px;
+  margin: 10px 8px 0;
   padding: 10px 20px;
   background: #00ffd0;
   color: #000;
@@ -228,4 +243,88 @@
 .modal-btn:hover {
   background: #00c9a9;
   color: #fff;
+  box-shadow: 0 0 15px rgba(0, 255, 208, 0.7);
+}
+
+/* Smooth pop-up animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* === Slideshow Styles === */
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto 25px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.slides {
+  display: none;
+}
+
+.slides img {
+  width: 100%;
+  border-radius: 15px;
+  height: auto;
+}
+
+/* Next/prev buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 10px;
+  color: #00ffd0;
+  font-weight: bold;
+  font-size: 24px;
+  transition: all 0.3s ease;
+  user-select: none;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.next {
+  right: 10px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.prev:hover, .next:hover {
+  background: rgba(0, 255, 208, 0.2);
+  color: #fff;
+}
+
+/* Fade animation */
+.fade {
+  animation-name: fadeEffect;
+  animation-duration: 0.8s;
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0.4;}
+  to {opacity: 1;}
+}
+
+.slides {
+  display: none;
+  animation: fade 1s ease-in-out;
+}
+
+@keyframes fade {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
 }
