@@ -186,15 +186,13 @@
 
 /* Wrapper enables scrolling if content overflows */
 .about-wrapper {
-  width: 110%;
-  max-height: 100vh; /* only the visible viewport */
-  overflow-y: auto;  /* enables vertical scroll */
-  padding: 40px 0;
+  width: 120%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  scroll-behavior: smooth;
-  margin-bottom: -30px;
+  align-items: center; /* or flex-start, depending on layout */
+  padding: 40px 0;
+  overflow: hidden; /* disable scroll for larger screens */
+  margin-bottom: 0;
 }
 
 /* Optional — custom scroll styling for elegance */
@@ -322,5 +320,28 @@
   .tooltip-text {
     font-size: 11px;
     bottom: 125%;
+  }
+
+  .about-wrapper {
+    max-height: 100vh; /* restrict to visible screen */
+    overflow-y: auto;  /* enable vertical scroll */
+    align-items: flex-start;
+    scroll-behavior: smooth;
+    margin-bottom: -30px;
+    margin-left: 5px;
+  }
+
+  /* Optional — custom scroll styling */
+  .about-wrapper::-webkit-scrollbar {
+  width: 6px;
+  }
+
+  .about-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 4px;
+  }
+
+  .about-wrapper::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0);
   }
 }
