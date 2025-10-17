@@ -32,6 +32,8 @@ body {
   user-select: none;
 }
 
+
+
 .main-nav {
   display: flex;
   justify-content: center;
@@ -178,6 +180,17 @@ p {
   pointer-events: none;
 }
 
+/* Clickable logo styling */
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.logo-link:hover .logo {
+  color: #00aeff; /* optional hover color */
+  transition: color 0.3s ease;
+}
 
 
 
