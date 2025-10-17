@@ -73,6 +73,26 @@
     </div>
 </header>
 
+<script>
+function openModal(id) {
+  document.getElementById(id).style.display = 'block';
+}
+
+function closeModal(id) {
+  document.getElementById(id).style.display = 'none';
+}
+
+// Close modal when clicking outside content
+window.onclick = function(event) {
+  document.querySelectorAll('.modal').forEach(modal => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+};
+</script>
+
+
 <!-- Navigation Arrows -->
 <button id="leftArrow" class="nav-arrow left">❮</button>
 <button id="rightArrow" class="nav-arrow right">❯</button>
@@ -270,34 +290,79 @@
 
 <!-- PROJECTS SECTION -->
 <section id="projects" class="projects-section">
-    <img src="~/images/project.png" alt="Kelly Soberano" class="project-img" />
+  <img src="~/images/project.png" alt="Kelly Soberano" class="project-img" />
+
   <div class="projects-container">
-    <div class="project-card project1">
-      <h2>💺 Seat Reservation System</h2>
-      <p>A full-featured seat booking system with real-time updates and Firebase integration.</p>
+    <!-- CARD 1 -->
+    <div class="project-card project1" onclick="openModal('modal1')">
+      <img src="~/images/discoveru.jpg" alt="DiscoverU Project" class="project-thumb" />
+      <h2>DiscoverU</h2>
+      <p>"Click Card!"</p>
     </div>
 
-    <div class="project-card project2">
-      <h2>📦 Inventory Management System</h2>
-      <p>Tracks stock, purchases, and sales efficiently using React and Node.js.</p>
+    <!-- CARD 2 -->
+    <div class="project-card project2" onclick="openModal('modal2')">
+      <img src="~/images/launchpad.jpg" alt="Launchpad Reservation" class="project-thumb" />
+      <h2>Launchpad Reservation</h2>
+      <p>"Click Card!"</p>
     </div>
 
-    <div class="project-card project3">
-      <h2>🌐 Personal Portfolio Website</h2>
-      <p>My personal showcase featuring glassmorphism and responsive animations.</p>
+    <!-- CARD 3 -->
+    <div class="project-card project3" onclick="openModal('modal3')">
+      <img src="~/images/brgy.jpg" alt="Brgy Appointment System" class="project-thumb" />
+      <h2>Brgy Appointment System</h2>
+      <p>"Click Card!"</p>
     </div>
 
-    <div class="project-card project4">
-      <h2>📊 Data Analytics Dashboard</h2>
-      <p>Visualizes performance metrics using interactive charts and APIs.</p>
+    <!-- CARD 4 -->
+    <div class="project-card project4" onclick="openModal('modal4')">
+      <img src="~/images/valkyrie.jpg" alt="Valkyrie Project" class="project-thumb" />
+      <h2>Valkyrie</h2>
+      <p>"Click Card!"</p>
     </div>
 
-    <div class="project-card project5">
-      <h2>🎓 E-Learning Platform</h2>
-      <p>A learning platform with account management and progress tracking.</p>
+    <!-- CARD 5 -->
+    <div class="project-card project5" onclick="openModal('modal5')">
+      <img src="~/images/portfolio.jpg" alt="Creative Portfolio" class="project-thumb" />
+      <h2>Creative Portfolio</h2>
+      <p>"Click Card!"</p>
     </div>
   </div>
+
+  <!-- ===== MODALS ===== -->
+  <!-- Modal 1 -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal1')">&times;</span>
+      <img src="~/images/discoveru.jpg" alt="DiscoverU" class="modal-img" />
+      <h2>DiscoverU</h2>
+      <p>
+        A web-based platform using OMR and real-time analytics to automate psychological assessments for Cavite State University – Bacoor City Campus.
+      </p>
+      <h3>🛠 Technologies Used:</h3>
+      <p>React, Node.js, Express, MongoDB, Firebase</p>
+      <a href="#" class="modal-btn" target="_blank">🔗 View Project</a>
+    </div>
+  </div>
+
+  <!-- Modal 2 -->
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal2')">&times;</span>
+      <img src="~/images/launchpad.jpg" alt="Launchpad Reservation" class="modal-img" />
+      <h2>Launchpad Reservation</h2>
+      <p>
+        A seat reservation platform built with React, Node.js, and Firebase to simplify booking management.
+      </p>
+      <h3>🛠 Technologies Used:</h3>
+      <p>React, Express.js, Firebase, MongoDB</p>
+      <a href="#" class="modal-btn" target="_blank">🔗 View Project</a>
+    </div>
+  </div>
+
+  <!-- Add modals 3–5 similarly -->
 </section>
+
 
 
     <!-- EXPERIENCE SECTION -->
