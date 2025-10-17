@@ -334,3 +334,165 @@
   from { opacity: 0.3; }
   to { opacity: 1; }
 }
+
+
+/* Wrapper enables scrolling if content overflows */
+.about-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* or flex-start, depending on layout */
+  padding: 40px 0;
+  overflow: hidden; /* disable scroll for larger screens */
+  margin-bottom: 0;
+}
+
+/* Optional — custom scroll styling for elegance */
+.about-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.about-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+}
+
+.about-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+}
+
+
+
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 1024px) {
+  .projects-container {
+    gap: 20px;
+  }
+
+  .project1, .project2, .project3, .project4, .project5 {
+    width: 90%;
+    height: auto;
+  }
+
+  .projects-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 60px 15px;
+  }
+
+  .projects-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-card {
+    width: 90%;
+    margin-top: 30px;
+    padding: 20px;
+  }
+
+  .project-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .project-card p {
+    font-size: 0.9rem;
+    padding: 6px 14px;
+  }
+
+  .project-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .slides img {
+    max-height: 40vh;
+  }
+
+  .prev, .next {
+    font-size: 18px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-title {
+    font-size: 1.8rem;
+  }
+
+  .project-card {
+    padding: 15px;
+    margin-top: 5px;
+  }
+
+  .project-card h2 {
+    font-size: 1rem;
+  }
+
+  .project-card p {
+    font-size: 0.8rem;
+  }
+  
+  .modal {
+    padding: 0px;
+    max-width: 100%;
+  }
+
+  .modal-content {
+    padding: 15px;
+    font-size: 0.9rem;
+    max-width: 80%;
+  }
+
+  .modal-btn {
+    padding: 8px 15px;
+    font-size: 0.8rem;
+  }
+
+  .slides img {
+    max-height: 35vh;
+    margin-top: 30px;
+    max-height: 20vh; /* Prevents very tall images */
+  }
+
+  .close {
+    font-size: 1.5rem;
+    z-index: 1001;
+  }
+
+  .project-img{
+    display: none;
+  }
+
+    .about-wrapper {
+    max-height: 100vh; /* restrict to visible screen */
+    overflow-y: auto;  /* enable vertical scroll */
+    align-items: flex-start;
+    scroll-behavior: smooth;
+    margin-bottom: -30px;
+  }
+
+  /* Optional — custom scroll styling */
+  .about-wrapper::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .about-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
+
+  .about-wrapper::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0);
+  }
+}
