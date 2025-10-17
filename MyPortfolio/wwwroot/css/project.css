@@ -337,8 +337,8 @@
 
 
 /* Wrapper enables scrolling if content overflows */
-.about-wrapper {
-  width: 100%;
+.about-wrapper-project {
+  width: 90%;
   display: flex;
   justify-content: center;
   align-items: center; /* or flex-start, depending on layout */
@@ -348,11 +348,11 @@
 }
 
 /* Optional — custom scroll styling for elegance */
-.about-wrapper::-webkit-scrollbar {
+.about-wrapper-project::-webkit-scrollbar {
   width: 6px;
 }
 
-.about-wrapper::-webkit-scrollbar-thumb {
+.about-wrapper-project::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0);
   border-radius: 4px;
 }
@@ -478,7 +478,7 @@
     display: none;
   }
 
-    .about-wrapper {
+    .about-wrapper-project {
     max-height: 100vh; /* restrict to visible screen */
     overflow-y: auto;  /* enable vertical scroll */
     align-items: flex-start;
@@ -487,16 +487,16 @@
   }
 
   /* Optional — custom scroll styling */
-  .about-wrapper::-webkit-scrollbar {
+  .about-wrapper-project::-webkit-scrollbar {
     width: 6px;
   }
 
-  .about-wrapper::-webkit-scrollbar-thumb {
+  .about-wrapper-project::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
   }
 
-  .about-wrapper::-webkit-scrollbar-track {
+  .about-wrapper-project::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0);
   }
 }
