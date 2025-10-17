@@ -24,8 +24,14 @@
 .main-footer-content {
     display: flex;
     align-items: center;
-    gap: 18rem;
+    gap: 16rem;
     white-space: nowrap;
+}
+
+.main-footer-content p {
+    margin: 0;
+    color: #686868;
+    font-weight: 600;
 }
 
 .main-footer a {
