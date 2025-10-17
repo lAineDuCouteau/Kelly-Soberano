@@ -101,10 +101,10 @@
 
 .project-img {
   position: absolute;
-  top: 49%;
+  top: 48.8%;
   left: 49.5%;
   transform: translate(-50%, -50%);
-  width: 500px;
+  width: 550px;
   height: 200px;
   pointer-events: none;
   z-index: 0;
