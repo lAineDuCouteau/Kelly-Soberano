@@ -18,6 +18,8 @@
 <a href="#home" class="logo-link">
       <h2 class="logo">Kelly Soberano</h2>
     </a>
+
+
     <!-- Burger Button -->
     <button class="burger" id="burgerBtn">☰</button>
 
@@ -67,6 +69,11 @@
             </svg>
             <span>Contact</span>
         </a>
+
+            <!-- Dark Mode Toggle -->
+<button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
+  🌙
+</button>
     </nav>
 </div>
 
@@ -171,6 +178,28 @@ window.addEventListener("load", () => {
 });
 </script>
 
+<script>
+  const toggle = document.getElementById("darkModeToggle");
+  const body = document.body;
+
+  // Load saved mode from localStorage
+  if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark-mode");
+    toggle.textContent = "☀️";
+  }
+
+  toggle.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+
+    if (body.classList.contains("dark-mode")) {
+      toggle.textContent = "☀️"; // light mode icon
+      localStorage.setItem("theme", "dark");
+    } else {
+      toggle.textContent = "🌙"; // dark mode icon
+      localStorage.setItem("theme", "light");
+    }
+  });
+</script>
 
 
 
