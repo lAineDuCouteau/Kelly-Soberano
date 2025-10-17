@@ -175,7 +175,6 @@
   backdrop-filter: blur(5px);
   
   /* Center modal content */
-  display: flex;
   justify-content: center;
   align-items: center;
   padding: 30px; /* adds breathing room */
@@ -338,7 +337,7 @@
 
 /* Wrapper enables scrolling if content overflows */
 .about-wrapper-project {
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center; /* or flex-start, depending on layout */

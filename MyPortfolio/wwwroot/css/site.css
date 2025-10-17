@@ -3,7 +3,13 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: #c6fff3;
   overflow: hidden;
-  user-select: none; /* Prevent text highlighting */
+
+  -webkit-tap-highlight-color: transparent; /* iOS Safari */
+  outline: none; /* remove focus outline */
+  -webkit-user-select: none; /* prevent text selection on tap */
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* Header */
@@ -17,6 +23,13 @@ body {
   text-align: center;
   padding: 15px 0 20px;
   z-index: 10;
+
+    -webkit-tap-highlight-color: transparent; /* iOS Safari */
+  outline: none; /* remove focus outline */
+  -webkit-user-select: none; /* prevent text selection on tap */
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .main-nav {
