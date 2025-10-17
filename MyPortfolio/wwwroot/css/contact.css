@@ -1,0 +1,311 @@
+/* === CONTACT SECTION === */
+.contact-section {
+  padding: 100px 40px;
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 0 20px #00aeff80;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-title {
+  font-size: 2.5rem;
+  color: #00aeff;
+  text-shadow: 0 0 10px #00aeff;
+  margin-bottom: 10px;
+}
+
+.contact-subtitle {
+  font-size: 1.3rem;
+  color: #707070;
+  margin-bottom: 10px;
+}
+
+/* === CONTACT LAYOUT (TRUE INTERSECTION) === */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/* First row: 3 cards centered */
+.contact-row.top {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* Second row: 2 cards centered and indented */
+.contact-row.bottom {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: -10px; /* slight overlap for visual intersection */
+  transform: translateY(20px); /* move up a bit */
+}
+
+.contact-row.bottom .contact-card {
+  transform: translateX(-1px); /* offset to center between top cards */
+}
+.contact-row.bottom .contact-card:last-child {
+  transform: translateX(1px);
+}
+
+
+/* === CONTACT CARD STYLE === */
+.contact-card-top, .contact-card-bottom {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(0, 174, 255, 0.5);
+  border-radius: 15px;
+  padding: 25px;
+  width: 230px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 174, 255, 0.2);
+  text-decoration: none;
+  color: #fff;
+}
+
+.contact-card-top:hover, .contact-card-bottom:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(0, 174, 255, 0.8);
+  background: rgba(0, 174, 255, 0.15);
+}
+
+/* === ICONS AND TEXT === */
+.contact-card-top svg,
+.contact-card-bottom svg {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+  fill: #00aeff;
+  filter: drop-shadow(0 0 8px #00aeff);
+}
+
+.contact-card-top span,
+.contact-card-bottom span {
+  font-weight: bold;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.contact-card-top, .contact-card-bottom p {
+  font-size: 1.2rem;
+  color: #78c0fc;
+    font-weight: bold;
+}
+
+/* === TOAST === */
+.copy-toast {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  background: rgba(0, 174, 255, 0.9);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 8px #fff;
+  box-shadow: 0 0 15px #00aeff;
+}
+
+.copy-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+.about-wrapper-contact {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* or flex-start, depending on layout */
+  padding: 40px 0;
+  overflow: hidden; /* disable scroll for larger screens */
+  margin-bottom: 0;
+}
+
+/* Optional — custom scroll styling for elegance */
+.about-wrapper-contact::-webkit-scrollbar {
+  width: 6px;
+}
+
+.about-wrapper-contact::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+}
+
+.about-wrapper-contact::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+}
+
+
+/* === RESPONSIVE DESIGN === */
+
+/* Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .contact-section {
+    padding: 80px 30px;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .contact-card {
+    width: 200px;
+    padding: 20px;
+  }
+
+  .contact-card svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .contact-card p {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 70px 25px;
+    border-radius: 15px;
+  }
+
+  .contact-title {
+    font-size: 1.8rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .contact-container {
+    gap: 25px;
+  }
+
+  .contact-row.top,
+  .contact-row.bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-top: 0;
+    transform: none;
+  }
+
+  .contact-row.bottom .contact-card,
+  .contact-row.bottom .contact-card:last-child {
+    transform: none;
+  }
+
+  .contact-card {
+    width: 90%;
+    max-width: 300px;
+    padding: 20px;
+  }
+
+  .contact-card svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .contact-card span {
+    font-size: 1rem;
+  }
+
+  .contact-card p {
+    font-size: 1rem;
+  }
+
+  .copy-toast {
+    top: 80px;
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+}
+
+/* Very small screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 60px 20px;
+  }
+
+  .contact-title {
+    font-size: 1.5rem;
+    margin-top: 50px;
+  }
+
+  .contact-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .contact-card {
+    width: 100%;
+    padding: 18px;
+        margin-top: -10px;
+
+  }
+
+  .contact-card svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .contact-card span {
+    font-size: 0.95rem;
+  }
+
+  .contact-card p {
+    font-size: 0.95rem;
+  }
+
+  .copy-toast {
+    top: 0px;
+    font-size: 0.85rem;
+  }
+
+  .contact-row.bottom .contact-card {
+    width: 100%;
+    max-width: none;
+  }
+  
+  .about-wrapper-contact {
+    max-height: 100vh; /* restrict to visible screen */
+    overflow-y: auto;  /* enable vertical scroll */
+    align-items: flex-start;
+    scroll-behavior: smooth;
+    margin-bottom: -30px;
+    margin-left: 10px;
+    margin-top: -20px;
+  }
+
+  /* Optional — custom scroll styling */
+  .about-wrapper-contact::-webkit-scrollbar {
+  width: 6px;
+  }
+
+  .about-wrapper-contact::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 4px;
+  }
+
+  .about-wrapper-contact::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0);
+  }
+}
