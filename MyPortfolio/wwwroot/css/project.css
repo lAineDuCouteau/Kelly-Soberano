@@ -29,8 +29,13 @@
   width: 100%;
 }
 
-/* Base card styling */
+/* Center title and "Click Card!" text */
 .project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center;     /* Center horizontally */
+  text-align: center;
   border-radius: 25px;
   padding: 25px 20px;
   backdrop-filter: blur(12px) saturate(180%);
@@ -39,13 +44,46 @@
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   color: #fff;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   position: relative;
-  text-align: left;
   margin-top: 50px;
+  cursor: pointer;
 }
+
+/* Title styling */
+.project-card h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #00ffd0;
+  text-shadow: 0 0 10px rgba(0, 255, 208, 0.5);
+}
+
+/* "Click Card!" styled like a glowing button */
+.project-card p {
+  font-size: 1rem;
+  background: rgba(0, 255, 208, 0.15);
+  color: #00ffd0;
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 255, 208, 0.4);
+  box-shadow: 0 0 10px rgba(0, 255, 208, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Hover animation for "Click Card!" text */
+.project-card:hover p {
+  background: #00ffd0;
+  color: #000;
+  box-shadow: 0 0 20px rgba(0, 255, 208, 0.8);
+  transform: scale(1.05);
+}
+
+/* Hover effect for the card itself */
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 45px rgba(0, 255, 208, 0.6);
+}
+
 
 /* Allow custom sizing for each project */
 .project1 {
@@ -121,17 +159,6 @@
   position: relative;
   z-index: 1;
 }
-
-
-.project-thumb {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-
-
 
 
 /* === MODAL STYLING === */
