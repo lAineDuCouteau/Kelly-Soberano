@@ -210,7 +210,7 @@ p {
 
 
 
-/* === Dark Mode Toggle === */
+/* === DARK MODE TOGGLE BUTTON === */
 .dark-mode-btn {
   background: none;
   border: none;
@@ -218,7 +218,6 @@ p {
   cursor: pointer;
   color: #25b9b1;
   transition: transform 0.3s ease, color 0.3s ease;
-  margin-left: 15px; /* spacing from nav items */
 }
 
 .dark-mode-btn:hover {
@@ -327,6 +326,10 @@ body.dark-mode .logo {
     transition: transform 0.3s ease-in-out;
     z-index: 1000;
   }
+  
+ body.dark-mode .main-nav {
+  background: rgb(30, 30, 30);
+}
 
   .main-nav.show {
     transform: translateX(0);
@@ -378,5 +381,3 @@ body.dark-mode .logo {
 
  
 }
-
-
