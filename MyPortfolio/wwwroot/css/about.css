@@ -186,7 +186,7 @@
 
 /* Wrapper enables scrolling if content overflows */
 .about-wrapper {
-  width: 110%;
+  width: 120%;
   max-height: 100vh; /* only the visible viewport */
   overflow-y: auto;  /* enables vertical scroll */
   padding: 40px 0;

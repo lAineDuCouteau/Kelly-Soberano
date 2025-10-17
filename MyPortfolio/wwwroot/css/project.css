@@ -470,6 +470,10 @@
     z-index: 1001;
   }
 
+  .prev, .next {
+    margin-top: 20px;
+  }
+
   .project-img{
     display: none;
   }
