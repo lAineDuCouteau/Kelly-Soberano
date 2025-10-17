@@ -1,0 +1,330 @@
+/* === EXPERIENCE SECTION === */
+.experience-section {
+  text-align: center;
+  padding: 100px 40px;
+  background: transparent;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.exp-title {
+  font-size: 3rem;
+  color: #00ccff;
+  margin-bottom: 20px;
+}
+
+.exp-subtitle {
+  font-size: 1.1rem;
+  color: #4e4e4e;
+  margin: 0 auto 80px auto;
+  max-width: 700px; 
+  text-align: center; 
+}
+
+/* Timeline container */
+.timeline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+/* The glowing center line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #00ffd0, transparent);
+  z-index: 0;
+}
+
+/* Each timeline item */
+.timeline-item {
+  position: relative;
+  width: 600px; /* ⬅ increased from 300px to 400px */
+  z-index: 1;
+  flex-shrink: 0; /* prevent shrinking on smaller but still wide screens */
+}
+
+/* Timeline card */
+.timeline-content {
+  background: rgba(0, 0, 0, 0.432);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  padding: 30px;
+  box-shadow: 0 6px 25px rgba(0, 255, 208, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* ensures it fills timeline-item width */
+  max-width: 520px; /* optional cap for cleaner layout */
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(0, 255, 208, 0.4);
+}
+
+.timeline-content h2 {
+  color: #00ffd0;
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.timeline-content h4 {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 15px;
+}
+
+.timeline-content p {
+  color: #eaeaea;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Alternate up and down */
+.timeline-item.up {
+  align-self: flex-start;
+  transform: translateY(-40px);
+}
+
+.timeline-item.down {
+  align-self: flex-end;
+  transform: translateY(40px);
+}
+
+/* Dots */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: #00ffd0a4;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #00ffd0;
+  z-index: 2;
+}
+
+/* === ANIMATION EFFECTS (Preserve Zigzag) === */
+
+/* Base hidden state */
+.timeline-item {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Default zigzag layout positions */
+.timeline-item.up {
+  transform: translateY(-40px);
+}
+.timeline-item.down {
+  transform: translateY(40px);
+}
+
+/* When visible (animate from a slightly farther offset) */
+.timeline-item.up.show {
+  opacity: 1;
+  transform: translateY(-40px); /* stays up */
+  transition-delay: 0.1s;
+}
+
+.timeline-item.down.show {
+  opacity: 1;
+  transform: translateY(40px); /* stays down */
+  transition-delay: 0.3s;
+}
+
+.timeline-item.up {
+  transform: translate(-20px, -40px);
+}
+.timeline-item.down {
+  transform: translate(20px, 40px);
+}
+
+.timeline-item.up.show {
+  transform: translate(0, -40px);
+}
+.timeline-item.down.show {
+  transform: translate(0, 40px);
+}
+
+/* Download button */
+.exp-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  color: #000;
+  background: #00ffd0;
+  font-weight: bold;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 208, 0.3);
+}
+
+.exp-btn:hover {
+  background: #00c9a9;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 255, 208, 0.6);
+  transform: translateY(-3px);
+}
+
+/* Wrapper enables scrolling if content overflows */
+.about-wrapper-experience {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* or flex-start, depending on layout */
+  padding: 40px 0;
+  overflow: hidden; /* disable scroll for larger screens */
+  margin-bottom: 0;
+}
+
+/* Optional — custom scroll styling for elegance */
+.about-wrapper-experience::-webkit-scrollbar {
+  width: 6px;
+}
+
+.about-wrapper-experience::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+}
+
+.about-wrapper-experience::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+}
+
+
+/* === 📱 RESPONSIVE DESIGN === */
+
+/* Tablets (<=1024px) */
+@media (max-width: 1024px) {
+  .timeline {
+    gap: 60px;
+  }
+
+  .timeline-item {
+    width: 90%;
+  }
+
+  .exp-title {
+    font-size: 2rem;
+  }
+
+  .exp-subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+}
+
+/* Mobile Devices (<=768px) */
+@media (max-width: 768px) {
+  .experience-section {
+    padding: 60px 20px;
+  }
+
+  .timeline {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .timeline::before {
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #00ffd0, transparent);
+  }
+
+  .timeline-item {
+    width: 100%;
+    max-width: 350px;
+    transform: none;
+    align-self: center;
+  }
+
+  .timeline-item::before {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .timeline-content {
+    padding: 20px;
+    font-size: 0.9rem;
+  }
+
+  .timeline-content h2 {
+    font-size: 1.1rem;
+  }
+
+  .timeline-content h4 {
+    font-size: 0.9rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.85rem;
+  }
+
+  .exp-btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  /* Stack layout (no zigzag) */
+  .timeline-item.up,
+  .timeline-item.down {
+    transform: none !important;
+  }
+}
+
+/* Small Phones (<=480px) */
+@media (max-width: 480px) {
+  .exp-title {
+    font-size: 1.8rem;
+  }
+
+  .exp-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .timeline-content {
+  box-sizing: border-box; 
+  }
+
+  .exp-btn {
+    font-size: 0.8rem;
+  }
+
+    .about-wrapper-experience {
+    max-height: 100vh; /* restrict to visible screen */
+    overflow-y: auto;  /* enable vertical scroll */
+    align-items: flex-start;
+    scroll-behavior: smooth;
+    margin-bottom: -30px;
+  }
+
+  /* Optional — custom scroll styling */
+  .about-wrapper-experience::-webkit-scrollbar {
+  width: 6px;
+  }
+
+  .about-wrapper-experience::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 4px;
+  }
+
+  .about-wrapper-experience::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0);
+  }
+}

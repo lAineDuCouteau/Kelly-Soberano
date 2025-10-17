@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/css/home.css" />
     <link rel="stylesheet" href="~/css/about.css" />
     <link rel="stylesheet" href="~/css/project.css" />
+    <link rel="stylesheet" href="~/css/experience.css" />
     <link rel="stylesheet" href="~/css/footer.css" />
 }
 
@@ -640,11 +641,62 @@ window.addEventListener("load", () => {
 
 
 
-    <!-- EXPERIENCE SECTION -->
-    <section id="experience">
-        <h1>Experience</h1>
-        <p>Hands-on with ASP.NET Core, React, Firebase, MongoDB, Node.js, and Tailwind CSS.</p>
-    </section>
+<!-- EXPERIENCE SECTION -->
+<section id="experience" class="experience-section">
+  <div class="about-wrapper-experience">
+    <div class="exp-container">
+  <h1 class="exp-title">Experience</h1>
+  <p class="exp-subtitle">
+    My work experience and other relevant training that have contributed to my professional growth.
+  </p>
+
+  <div class="timeline">
+    <!-- OJT -->
+    <div class="timeline-item up">
+      <div class="timeline-content">
+        <h2>On-the-Job Training (OJT)</h2>
+        <h4>FivetwentyItServices | July 2024 - September 2024</h4>
+        <p>
+          Full Stack Developer where my team and I developed two web based systems: A Reservation system and an Inventory system, where I contributed to both front-end and back-end development using technologies such as React, Node.js, Express.js, MongoDB, and Firebase Storage.
+        </p>
+        <a href="images/exp/Certificate - OJT.jpg" class="exp-btn" download>Download Certificate</a>
+      </div>
+    </div>
+
+    <!-- Operations Customer Expert -->
+    <div class="timeline-item down">
+      <div class="timeline-content">
+        <h2>Operations Customer Expert I</h2>
+        <h4>Teleperformance | April 2025 - September 2025</h4>
+        <p>
+          A part of Fraud Prevention Team and Reconsideration Team where I handled applications for credit cards, ensuring compliance with company policies and regulatory standards. I investigated and resolved fraudulent activities, safeguarding both customer and company interests.
+        </p>
+        <a href="images/exp/Certificate - Tp.jpg" class="exp-btn" download>Download Certificate</a>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</section>
+
+<script>
+  const items = document.querySelectorAll(".timeline-item");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  items.forEach((item) => observer.observe(item));
+</script>
+
+
 
     <!-- CONTACT SECTION -->
     <section id="contact">
