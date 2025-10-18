@@ -879,11 +879,13 @@ window.addEventListener("load", () => {
     }
 
     scrollContainer.addEventListener('scroll', () => {
+        if (mainNav.classList.contains('show')) return; 
         const sectionWidth = window.innerWidth;
         currentIndex = Math.round(scrollContainer.scrollLeft / sectionWidth);
         updateArrowVisibility();
         updateProgressBar();
     });
+
 
     // Init
     updateArrowVisibility();
