@@ -311,7 +311,7 @@ body.dark-mode .logo {
   }
 
   .main-nav {
-    position: absolute;
+    position: fixed;
     top: 70px;
     right: 0;
     background: rgba(212, 252, 255, 0.9);
@@ -324,18 +324,26 @@ body.dark-mode .logo {
     width: 90%;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
-    z-index: 1000;
+    z-index: 2000;  /* higher than arrows */
+
   }
   
  body.dark-mode .main-nav {
   background: rgb(30, 30, 30);
 }
 
+.nav-arrow.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+
   .main-nav.show {
     transform: translateX(0);
-  }
+        z-index: 2000;  /* higher than arrows */
 
- 
+  }
 
   .main-nav a {
     flex-direction: row;
@@ -360,17 +368,15 @@ body.dark-mode .logo {
   .nav-arrow {
     font-size: 1rem;
     padding: 8px 12px;
+        z-index: 1500;  /* lower than menu */
+
   }
 
   .main-nav {
     flex-direction: column;
     align-items: center;
   }
-}
 
-
-/* Responsive */
-@media (max-width: 768px) {
   h1 {
     font-size: .9rem;
   }
@@ -378,6 +384,4 @@ body.dark-mode .logo {
   p {
     font-size: .8rem;
   }
-
- 
 }

@@ -814,7 +814,16 @@ window.addEventListener("load", () => {
     // Burger menu toggle
     burgerBtn.addEventListener('click', () => {
         mainNav.classList.toggle('show');
+
+        if (mainNav.classList.contains('show')) {
+            // Hide arrows when menu is open
+            [leftArrow, rightArrow].forEach(arrow => arrow.classList.add('hidden'));
+        } else {
+            // Restore arrow visibility based on current section
+            updateArrowVisibility();
+        }
     });
+
 
     // Smooth scroll for nav links
     document.querySelectorAll('.main-nav a').forEach(link => {
